@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+export const FeedbackOptions = ({ options, handleClick }) => {
   return (
     <div className={styles.wrapper}>
       {options.map(option => (
@@ -9,7 +9,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
           className={styles.button}
           key={option}
           value={option}
-          onClick={onLeaveFeedback}
+          onClick={handleClick}
         >
           {option}
         </button>
@@ -21,5 +21,5 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.oneOf(['good', 'bad', 'neutral']))
     .isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
